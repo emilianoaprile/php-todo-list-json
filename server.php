@@ -2,9 +2,12 @@
 // recupero file json 
 $todos_json = file_get_contents('todos.json');
 // var_dump($todos_json);
+
 // decodifico il file json in array associativo
 $todos = json_decode($todos_json, true);
 // var_dump($todos);
+
+
 
 // creo variabile response che ritroverò nella sezione network - response
 $response = [

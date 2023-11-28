@@ -12,6 +12,7 @@ $title = 'To Do List';
     <title><?php echo $title ?></title>
     <!-- cdn -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
@@ -21,8 +22,8 @@ $title = 'To Do List';
                 <div class="container">
                     <h1>{{ title }}</h1>
                 </div>
-                <form action="">
-                    <input type="text">
+                <form action="" method="POST">
+                    <input @keyup.enter="storeData" v-model="newTodo" type="text" name="new_todo">
                 </form>
                 
             </section>
@@ -30,7 +31,7 @@ $title = 'To Do List';
             <section>
                 <div class="container">
                     <ul>
-                        <li v-for="(todo, index) in todos" :key="index">{{ todo }}</li>
+                        <li v-for="(todo, index) in todos" :key="index">{{ todo.text }}</li>
                     </ul>
                 </div>
             </section>
